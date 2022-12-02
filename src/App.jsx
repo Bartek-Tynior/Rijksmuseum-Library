@@ -5,6 +5,7 @@ import {
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
+import './assets/styles/List.css'
 
   
   const router = createBrowserRouter([

@@ -1,31 +1,50 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import axios from "axios"
+import Card from "../components/Card";
+import Fuse from "fuse.js";
+import { motion } from "framer-motion"
 
 function IndexPage() {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [query, updateQuery] = useState('');
 
-    useEffect(() => {
-        const getData = async () => {
+     useEffect(() => {
+        async function getData() {
           try {
             const response = await axios.get(
-              `https://www.rijksmuseum.nl/api/nl/collection?key=ZSi2lYRS&involvedMaker=Rembrandt+van+Rijn`
+              `https://www.rijksmuseum.nl/api/nl/collection?key=ZSi2lYRS&ps=10`
             );
-            setData(response.data);
+            setData(response.data.artObjects)
             setError(null);
-            console.log(response.data.artObjects);
+            console.log(response.data);
           } catch (err) {
             setError(err.message);
             setData(null);
           } finally {
             setLoading(false);
           }
-        };
+        }
         getData();
       }, []);
 
+      const fuse = new Fuse(data, {
+        keys: [
+          'title',
+          'principalOrFirstMaker',
+        ],
+        includeScore: true
+      });
+
+      const results = fuse.search(query);
+      const collectionResult = query ? results.map(collectionArt => collectionArt.item) : data;
+
+      function onSearch({ currentTarget = {}}) {
+        const { value } = currentTarget;
+        updateQuery(value);
+      }
 
   return (
     <>
@@ -35,16 +54,13 @@ function IndexPage() {
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
-      <ul>
+      <input type="text" value={query} onChange={onSearch} />
+      <motion.div className="list">
         {data &&
-          data.artObjects.map(({ title, objectNumber }) => (
-            <li key={title}>
-                <Link to={`/${objectNumber}`}>
-              <h3>{title}</h3>
-              </Link>
-            </li>
+          collectionResult.map((object, index) => (
+            <Card artObject={object} key={index} />
           ))}
-      </ul>
+      </motion.div>
     </div>
     </>
   )
