@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom"
 import axios from "axios"
 import Card from "../components/Card";
 import Fuse from "fuse.js";
@@ -47,22 +46,26 @@ function IndexPage() {
       }
 
   return (
-    <>
-    <div className="IndexPage">
-        <h1>API Posts</h1>
-      {loading && <div>A moment please...</div>}
-      {error && (
-        <div>{`There is a problem fetching the post data - ${error}`}</div>
-      )}
-      <input type="text" value={query} onChange={onSearch} />
-      <motion.div className="list">
-        {data &&
-          collectionResult.map((object, index) => (
-            <Card artObject={object} key={index} />
-          ))}
-      </motion.div>
+    <div className="container">
+    <h1 className="page_title">Rijksmuseum Index</h1>
+    <div className="content_bottom">
+      <div className="content">
+        <div className="searchbar">
+            <input className="search__input" type="text" value={query} onChange={onSearch} placeholder="Search for the pieces"/>
+        </div>
+        <motion.div className="list">
+        {loading && <div>A moment please...</div>}
+        {error && (
+          <div>{`There is a problem fetching the post data - ${error}`}</div>
+        )}
+          {data &&
+            collectionResult.map((object, index) => (
+              <Card artObject={object} key={index} />
+            ))}
+        </motion.div>
+      </div>
     </div>
-    </>
+    </div>
   )
 }
 

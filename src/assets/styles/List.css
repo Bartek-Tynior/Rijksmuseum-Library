@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Noto+Serif+Khojki:wght@600&display=swap');
+
 .list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -5,13 +8,105 @@
     grid-row-gap: 2rem;
 }
 
-.card_image {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 1rem;
-    margin-bottom: 1rem;
+h2, p {
+    font-family: 'Montserrat', sans-serif;
+    color: #e9ecef;
 }
 
-.card_title {
-    height: 4rem;
+p {
+    font-weight: 300;
+}
+
+.container {
+    margin: 0;
+    position: relative;
+}
+
+.page_title {
+    position: absolute;
+    font-size: 6rem;
+    margin: 0;
+    margin-left: 20px;
+    opacity: 0.1;
+    font-family: 'Noto Serif Khojki', serif;
+    color: #e9ecef;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none; 
+}
+
+.card_image {
+    width: 100%;
+    height: 25rem;
+    background: black;
+    overflow: hidden;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.image {
+    object-fit: cover;
+    opacity: 0.4;
+}
+
+.atuhor {
+    margin: 0;
+}
+
+.search__input {
+        width: 50%;
+        padding: 10px;
+
+        background-color: transparent;
+        transition: transform 250ms ease-in-out;
+        font-size: 14px;
+        line-height: 18px;
+        
+        color: #e9ecef;
+ 
+        border-radius: 50px;
+        border: 1px solid #e9ecef;
+        transition: all 250ms ease-in-out;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        
+    }
+
+.content {
+  margin: 0 20%;
+}
+
+.searchbar {
+    text-align: center;
+    padding: 2rem;
+}
+
+.search__input::placeholder {
+        color: #e9ecef;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+.search__input:hover, .search__input:focus {
+        padding: 12px 0;
+        outline: 0;
+        border: 1px solid transparent;
+        border-bottom: 1px solid #e9ecef;
+        border-radius: 0;
+        background-position: 100% center;
+    }
+
+
+.down {
+    position: absolute;
+    bottom: 0;
+    margin: 10px
+}
+
+a {
+    text-decoration: none;
 }

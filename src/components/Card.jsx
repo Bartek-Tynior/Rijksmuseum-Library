@@ -1,9 +1,16 @@
+import { Link } from "react-router-dom"
+
 function Card({artObject}) {
     return (
-        <div>
-            <h2 className="card_title">{artObject.title}</h2>
-            <img className="card_image" src={artObject.headerImage.url} />
-        </div>
+        <Link to={`/${artObject.objectNumber}`}>
+                <div className="card_image">
+                    <img className="image" src={artObject.headerImage.url} />
+                    <div className="down">
+                        <h2>{artObject.title}</h2>                
+                        <p>{artObject.principalOrFirstMaker}</p>
+                    </div>
+                </div>        
+        </Link>
     )
 }
 
