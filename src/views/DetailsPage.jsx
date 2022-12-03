@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios"
 import AnimatedCursor from "../components/AnimeCursor";
 import Description from "../components/Description";
+import { motion, AnimatePresence } from "framer-motion"
 
 
 function DetailsPage() {
@@ -36,7 +37,7 @@ function DetailsPage() {
 
 
   return (
-    <div className="container">
+    <motion.div className="container">
       <AnimatedCursor/>
       {data && (
         <div className="content_detail">
@@ -52,7 +53,7 @@ function DetailsPage() {
           </div>
         </div>
             )}
-    </div>
+    </motion.div>
   )
 }
 

@@ -21,7 +21,7 @@ function Modal({ imgSrc }) {
         <button onClick={toggleModal} 
         className="btn_modal"
         >
-            Show the image 
+          Volledig afbeelding
         </button>
 
         {modal && (

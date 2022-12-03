@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 .content_detail {
     width: 100%;
@@ -6,6 +6,15 @@
     display: flex;
     font-family: 'Montserrat', sans-serif;
     color: white;
+}
+
+.subheading_detail{
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 1rem;
+    font-weight: 700;
+    color: #CCB22E;
+    border-bottom: 1px solid white;
+    margin: 0;
 }
 
 .left, .right {
@@ -17,6 +26,12 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none; 
 }
 
 .left img {
@@ -30,8 +45,20 @@
     margin: 0 30px;
 }
 
+.description {
+    padding-bottom: 20px;
+}
+
+.dating {
+    padding-bottom: 20px;
+}
+
+.aqusition {
+    padding-bottom: 20px;
+}
+
 .title_detail {
-    font-size: 4rem;
+    font-size: 6rem;
 }
 
 .author_detail {
@@ -39,20 +66,51 @@
 }
 
 .details{
-    padding: 30px
+    width: 70%;
+    height: 100%;
+    padding: 20px 20px 0 0;
+}
+
+.right {
+    overflow: hidden;
 }
 
 .materials_list, .color_list {
-    display: flex;
-    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin: 0 20px 0 0;
 }
 
 .material_box {
-    background-color: #97A97C;
+    background-color: #CCB22E;
+    border-radius: 10px;
     padding: 10px;
-    margin-right: 10px;
+    display: inline-block;
+    margin: 10px;
 }
 
 .color_box {
+    border-radius: 10px;
     padding: 10px;
+    display: inline-block;
+    margin: 0 10px 10px;
 }
+
+.show_image {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 2rem;
+}
+
+.btn_modal {
+    background-color: #CCB22E;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+  }
