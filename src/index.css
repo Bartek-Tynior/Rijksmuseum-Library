@@ -1,5 +1,9 @@
 body {
   margin: 0;
+  height: 100vh;
   background-color: #080808;
 }
 
+#root {
+  height: 100%;
+}

@@ -3,6 +3,7 @@ import axios from "axios"
 import Card from "../components/Card";
 import Fuse from "fuse.js";
 import { motion } from "framer-motion"
+import AnimatedCursor from "../components/AnimeCursor";
 
 function IndexPage() {
     const [data, setData] = useState([]);
@@ -47,6 +48,7 @@ function IndexPage() {
 
   return (
     <div className="container">
+      <AnimatedCursor/>
     <h1 className="page_title">Rijksmuseum Index</h1>
     <div className="content_bottom">
       <div className="content">
