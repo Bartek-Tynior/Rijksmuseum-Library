@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios"
 import Card from "../components/Card";
 import Fuse from "fuse.js";
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import AnimatedCursor from "../components/AnimeCursor";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 function IndexPage() {
     const [data, setData] = useState([]);
@@ -53,18 +55,27 @@ function IndexPage() {
     <div className="content_bottom">
       <div className="content">
         <div className="searchbar">
-            <input className="search__input" type="text" value={query} onChange={onSearch} placeholder="Search for the pieces"/>
+            <input className="search__input" type="text" value={query} onChange={onSearch} placeholder="Zoek naar de kunstenaaren of objecten..."/>
         </div>
-        <motion.div className="list">
-        {loading && <div>A moment please...</div>}
+        <AnimatePresence>
+        <motion.div  layout
+  animate={{ opacity: 1 }}
+  transition={{
+    opacity: { bounce: "linear" },
+    layout: { duration: 0 }
+    
+  }}
+        className="list">
+        {loading && <Loading/>}
         {error && (
-          <div>{`There is a problem fetching the post data - ${error}`}</div>
+          <Error errorMessage={error} />
         )}
           {data &&
             collectionResult.map((object, index) => (
-              <Card artObject={object} key={index} />
+              <Card artObject={object} key={index}/>
             ))}
         </motion.div>
+        </AnimatePresence>
       </div>
     </div>
     </div>

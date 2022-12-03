@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
 
 function Card({artObject}) {
     return (
-        <Link to={`/${artObject.objectNumber}`}>
+        <motion.div layout={{ duration: 0 }} initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0 }}>
+            <Link to={`/${artObject.objectNumber}`}>
                 <div className="card_image">
                     <img className="image" src={artObject.headerImage.url} />
                     <div className="down">
@@ -10,7 +14,8 @@ function Card({artObject}) {
                         <p>{artObject.principalOrFirstMaker}</p>
                     </div>
                 </div>        
-        </Link>
+            </Link>
+        </motion.div>
     )
 }
 

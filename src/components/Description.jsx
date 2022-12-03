@@ -1,4 +1,5 @@
 import React from 'react'
+import Modal from './Modal'
 
 function Description({ artObject }) {
   return (
@@ -11,6 +12,13 @@ function Description({ artObject }) {
         <div className='dating'>
             <h2>Dating</h2>
             {artObject.dating.presentingDate}
+        </div>
+
+        <div className='aqusition'>
+            <h2>Acquisitie</h2>
+            <h3>{artObject.acquisition.creditLine}</h3>
+            <h3>{artObject.acquisition.date}</h3>
+            <h3>{artObject.acquisition.method}</h3>
         </div>
 
         <div className='materials'>
@@ -33,6 +41,11 @@ function Description({ artObject }) {
                 </div>
             ))}
             </div>
+        </div>
+
+
+        <div className='show_image'>
+            <Modal imgSrc={artObject.webImage.url} />
         </div>
     </div>
   )

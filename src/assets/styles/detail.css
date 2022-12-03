@@ -10,12 +10,13 @@
 
 .left, .right {
     width: 50%;
+    position: relative;
 }
 
 .left {
     display: flex;
+    justify-content: center;
     overflow: hidden;
-    position: relative;
 }
 
 .left img {
@@ -43,6 +44,7 @@
 
 .materials_list, .color_list {
     display: flex;
+    width: 100%;
 }
 
 .material_box {
@@ -53,5 +55,4 @@
 
 .color_box {
     padding: 10px;
-    margin-right: 10px;
 }
