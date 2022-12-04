@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import Card from "../components/Card";
 import Fuse from "fuse.js";
@@ -6,41 +6,41 @@ import { motion, AnimatePresence } from "framer-motion";
 import AnimatedCursor from "../components/AnimeCursor";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
+import { useQuery } from "react-query";
 
 function IndexPage() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [query, updateQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const [collection, setCollection] = useState([]);
+  const [activePage, setActivePage] = useState(1);
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        const response = await axios.get(
-          `https://www.rijksmuseum.nl/api/nl/collection?key=ZSi2lYRS&ps=10`
-        );
-        setData(response.data.artObjects);
-        setError(null);
-        console.log(response.data);
-      } catch (err) {
-        setError(err.message);
-        setData(null);
-      } finally {
-        setLoading(false);
-      }
-    }
-    getData();
-  }, []);
+  const getCollection = async () => {
+    const response = await axios.get(
+      `https://www.rijksmuseum.nl/api/nl/collection?key=ZSi2lYRS&p=${page}&ps=10`
+    );
+    let collection = response.data.artObjects;
+    setCollection(collection);
+    return collection;
+  };
 
-  const fuse = new Fuse(data, {
+  const { isLoading, isError, data, error } = useQuery({
+    queryKey: ["collection", page],
+    queryFn: () => getCollection(page),
+    staleTime: 60000,
+    keepPreviousData: true,
+  });
+
+  const paginate = (newPage) => {
+    setPage(newPage);
+  };
+
+  const fuse = new Fuse(collection, {
     keys: ["title", "principalOrFirstMaker"],
     includeScore: true,
   });
 
   const results = fuse.search(query);
-  const collectionResult = query
-    ? results.map((collection) => collection.item)
-    : data;
+  const collectionResult = query ? results.map((item) => item.item) : data;
 
   function onSearch({ currentTarget = {} }) {
     const { value } = currentTarget;
@@ -54,10 +54,10 @@ function IndexPage() {
       </head>
 
       <AnimatedCursor />
-      {loading && <Loading />}
-      {error && <Error errorMessage={error} />}
-      {loading == false && <h1 className="page_title">Rijksmuseum Index</h1>}
-      {loading == false && (
+      {isLoading && <Loading />}
+      {isError && <Error errorMessage={error} />}
+      {isLoading == false && <h1 className="page_title">Rijksmuseum Index</h1>}
+      {isLoading == false && (
         <div className="content">
           <div className="searchbar">
             <input
@@ -77,11 +77,69 @@ function IndexPage() {
               className="list"
             >
               {data &&
-                collectionResult.map((object, index) => (
-                  <Card artObject={object} key={index} />
+                collectionResult.map((artObject) => (
+                  <Card artObject={artObject} key={artObject.objectNumber} />
                 ))}
             </motion.div>
           </AnimatePresence>
+          <div className="pagination_container ">
+            <div className="pagination">
+              <button
+                onClick={() => {
+                  paginate(1);
+                  setActivePage(1);
+                }}
+                className={`pagination_link_${activePage == 1 && "active"}`}
+              >
+                1
+              </button>
+              <button
+                onClick={() => {
+                  paginate(2);
+                  setActivePage(2);
+                }}
+                className={`pagination_link_${activePage == 2 && "active"}`}
+              >
+                2
+              </button>
+              <button
+                onClick={() => {
+                  paginate(3);
+                  setActivePage(3);
+                }}
+                className={`pagination_link_${activePage == 3 && "active"}`}
+              >
+                3
+              </button>
+              <button
+                onClick={() => {
+                  paginate(4);
+                  setActivePage(4);
+                }}
+                className={`pagination_link_${activePage == 4 && "active"}`}
+              >
+                4
+              </button>
+              <button
+                onClick={() => {
+                  paginate(5);
+                  setActivePage(5);
+                }}
+                className={`pagination_link_${activePage == 5 && "active"}`}
+              >
+                5
+              </button>
+              <button
+                onClick={() => {
+                  paginate(6);
+                  setActivePage(6);
+                }}
+                className={`pagination_link_${activePage == 6 && "active"}`}
+              >
+                6
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

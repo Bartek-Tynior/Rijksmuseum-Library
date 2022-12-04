@@ -1,35 +1,28 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import axios from "axios";
 import AnimatedCursor from "../components/AnimeCursor";
 import Description from "../components/Description";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { useQuery } from "react-query";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 function DetailsPage() {
   let { objectNumber } = useParams();
   let url = `https://www.rijksmuseum.nl/api/nl/collection/${objectNumber}?key=ZSi2lYRS`;
 
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [query, updateQuery] = useState("");
+  const getArtObject = async () => {
+    const response = await axios.get(url);
+    let artObject = response.data.artObject;
+    return artObject;
+  };
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(url);
-        setData(response.data.artObject);
-        setError(null);
-        console.log(response.data.artObject);
-      } catch (err) {
-        setError(err.message);
-        setData(null);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchData();
-  }, [url]);
+  const { isLoading, isError, data, error } = useQuery({
+    queryKey: ["artObject", url],
+    queryFn: () => getArtObject(),
+    staleTime: 60000,
+    keepPreviousData: true,
+  });
 
   return (
     <motion.div
@@ -42,6 +35,8 @@ function DetailsPage() {
         <title>Details</title>
       </head>
       <AnimatedCursor />
+      {isLoading && <Loading />}
+      {isError && <Error errorMessage={error} />}
       {data && (
         <div className="content_detail">
           <div className="left">
