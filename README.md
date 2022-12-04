@@ -7,14 +7,8 @@ React JS is one of the most popular JavaScript framework for bulding simple, fas
 For this project I've also used the vite tooling which is a build tool that aims to provide a faster and leaner development experience for modern web projects.
 Vite’s ability to pre-bundle NPM dependencies and convert CommonJS/UMD modules to ESM using esbuild, means that Vite’s cold start times are significantly faster than any other JavaScript-based bundler.
 
-<<<<<<< HEAD
 The project also contains the React Query, axios and Fuse JS libraries. The Axios is a basic JavaScript library used to make HTTP
 requests from node js or XMLHttpRequests from the browser. It is really popular and it became the standard over the years, but I choosed to combine it with React Query library. The biggest advantage of the React Query is that it gives us caching of server data out of the box with cache invalidation and request deduping.
-=======
-The project also contains the React Query, axios and Fuse JS libraries. The Axios is a basic JavaScript library used to make HTTP 
-requests from node. js or XMLHttpRequests from the browser. It is really popular and it became the standard over the years, but I choosed to combine it with React Query library.
-The biggest advantage of the React Query is that it gives us caching of server data out of the box with cache invalidation and request deduping. 
->>>>>>> 0cf431176391685df3fefd78cc43a4f91b6ff54a
 Simple said: if the data is already there, React Query will simply return it, avoiding extra network requests!
 
 I've also used the Fuse JS library for fuzzy search in my application. It provides a search in Object Array and is really easy to implement.
