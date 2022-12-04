@@ -1,137 +1,149 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 .container_detail {
-    margin: 0;
-    position: relative;
-    height: 100%;
+  margin: 0;
+  position: relative;
+  height: 100%;
 }
 
 .content_detail {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+  color: #e9ecef;
 }
 
-.subheading_detail{
-    font-family: 'Montserrat', sans-serif;
-    padding-bottom: 1rem;
-    font-weight: 700;
-    color: #CCB22E;
-    border-bottom: 1px solid white;
+.subheading_detail {
+  font-family: "Montserrat", sans-serif;
+  padding-bottom: 1rem;
+  font-weight: 700;
+  color: #ccb22e;
+  border-bottom: 1px solid #e9ecef;
 }
 
-.aqusition_credits, .aqusition_method, .aqusition_date, .description_text{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
+.aqusition_credits,
+.aqusition_method,
+.aqusition_date {
+  color: #e9ecef;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+.description_text {
+  font-weight: 500;
 }
 
 .dating_presentingDate {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
 }
 
-.left, .right {
-    width: 50%;
-    position: relative;
+.left,
+.right {
+  width: 50%;
+  position: relative;
 }
 
 .left {
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none; 
-        -ms-user-select: none; 
-            user-select: none; 
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .left img {
-    object-fit: cover;
-    opacity: 0.6;
-    overflow: hidden;
+  object-fit: cover;
+  opacity: 0.6;
+  overflow: hidden;
 }
 
 .detail_title {
-    position: absolute;
-    top: 0;
-    padding: 0 30px;
+  position: absolute;
+  top: 0;
+  padding: 0 30px;
 }
 
-.description, .dating, .aqusition, .materials  {
-    padding-bottom: 20px;
+.description,
+.dating,
+.aqusition,
+.materials {
+  padding-bottom: 20px;
 }
 
 .title_detail {
-    font-size: 6rem;
-    margin-bottom: 0;
-    margin-top: 20px;
+  font-size: 6rem;
+  margin-bottom: 0;
+  margin-top: 20px;
 }
 
 .author_detail {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
-.details{
-    width: 70%;
-    height: 100%;
-    padding: 20px 20px 0 50px;
+.details {
+  width: 70%;
+  height: 100%;
+  padding: 20px 20px 0 50px;
 }
 
 .right {
-    overflow: hidden;
+  overflow: hidden;
 }
 
-.materials_list, .color_list {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    margin: 0 20px 0 0;
+.materials_list,
+.color_list {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  margin: 0 20px 0 0;
 }
 
 .material_box {
-    background-color: #CCB22E;
-    border-radius: 10px;
-    padding: 10px;
-    display: inline-block;
-    margin: 10px 10px 10px;
+  background-color: #ccb22e;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+  margin: 10px 10px 10px;
 }
 
 .color_box {
-    border-radius: 10px;
-    padding: 10px;
-    display: inline-block;
-    margin: 10px 10px 10px;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+  margin: 10px 10px 10px;
 }
 
 .show_image {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 2rem;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 2rem;
 }
 
 .btn_modal {
-    background-color: #080808;
-    border-color: #CCB22E;
-    color: #CCB22E;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 10px;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 700;
-  }
+  background-color: #080808;
+  border-color: #ccb22e;
+  color: #ccb22e;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+}
 
-  .btn_modal:hover {
-    background-color: #CCB22E;
-    border-color: #CCB22E;
-    color: #080808; 
-  }
+.btn_modal:hover {
+  background-color: #ccb22e;
+  border-color: #ccb22e;
+  color: #080808;
+}
 
-  .label_detail {
-    font-weight: 700;
-  }
+.label_detail {
+  font-weight: 700;
+}
