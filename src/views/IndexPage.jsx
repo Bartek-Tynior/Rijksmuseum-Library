@@ -7,6 +7,7 @@ import AnimatedCursor from "../components/AnimeCursor";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 import { useQuery } from "react-query";
+import { getCollection } from "../components/Fetch";
 
 function IndexPage() {
   const [query, updateQuery] = useState("");
@@ -14,21 +15,22 @@ function IndexPage() {
   const [collection, setCollection] = useState([]);
   const [activePage, setActivePage] = useState(1);
 
-  const getCollection = async () => {
+  const getAllObjects = async () => {
     const response = await axios.get(
-      `https://www.rijksmuseum.nl/api/nl/collection?key=ZSi2lYRS&p=${page}&ps=10`
+      `https://www.rijksmuseum.nl/api/nl/collection?key=ZSi2lYRS&ps=60`
     );
-    let collection = response.data.artObjects;
-    setCollection(collection);
+    let all = response.data.artObjects;
+    setCollection(all);
     return collection;
   };
 
-  const { isLoading, isError, data, error } = useQuery({
-    queryKey: ["collection", page],
-    queryFn: () => getCollection(page),
-    staleTime: 60000,
-    keepPreviousData: false,
-  });
+  const { isLoading, isError, data, error } = useQuery(
+    ["collection", page],
+    () => getCollection(page),
+    { keepPreviousData: true }
+  );
+
+  const allArtObjects = useQuery(["all"], () => getAllObjects());
 
   const paginate = (newPage) => {
     setPage(newPage);
