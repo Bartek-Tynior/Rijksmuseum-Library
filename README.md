@@ -13,7 +13,7 @@ For this project I've also used the vite tooling which is a build tool that aims
 Vite’s ability to pre-bundle NPM dependencies and convert CommonJS/UMD modules to ESM using esbuild, 
 means that Vite’s cold start times are significantly faster than any other JavaScript-based bundler.
 
-The project also contains the React Query, axios and Fuse JS libraries. The Axios is a basic JavaScript library used to make to make HTTP 
+The project also contains the React Query, axios and Fuse JS libraries. The Axios is a basic JavaScript library used to make HTTP 
 requests from node. js or XMLHttpRequests from the browser. It is really popular and it became the standard over the years, but I choosed to combine it with React Query library.
 The biggest advantage of the React Query is that it gives us caching of server data out of the box with cache invalidation and request deduping. 
 Simple said: if the data is already there, React Query will simply return it, avoiding extra network requests!
