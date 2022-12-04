@@ -16,3 +16,7 @@ It's also a lightweight library, so it doesn't cost you any performence implemnt
 
 For the animations in my application I've used the framer motion library, which is a really extensive animation library for React JS. It's one of the most common
 animation libraries for React JS and the community is big, so that's why I have choosed for this one.
+
+# Anagrams
+
+In the project files you can also find the anagrams.js-file, which basically find the anagrams adn group them. This is done using the for-loop with temporary array of items. First of all we destrcuture the words en sort the characters in the correct orderd. Next we create a temporary array with the anagrams and we fill it up with the anagrams and then push it into anagrams list, which holds all arrays with anagrams. Last step is to return the anagrams list with all arrays with anagrams in it.
