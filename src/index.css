@@ -1,11 +1,21 @@
 body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
   margin: 0;
-  height: 100vh;
   background-color: #080808;
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
 }
 
 #root {
   height: 100%;
+  width: 100%;
 }
 
 ::-webkit-scrollbar {

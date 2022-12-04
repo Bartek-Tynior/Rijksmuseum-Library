@@ -37,7 +37,11 @@ function DetailsPage() {
 
 
   return (
-    <motion.div className="container">
+    <motion.div className="container_detail"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1}}
+    transition={{ duration: 1 }}
+    >
       <AnimatedCursor/>
       {data && (
         <div className="content_detail">

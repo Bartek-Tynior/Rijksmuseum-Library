@@ -41,7 +41,7 @@ function IndexPage() {
       });
 
       const results = fuse.search(query);
-      const collectionResult = query ? results.map(collectionArt => collectionArt.item) : data;
+      const collectionResult = query ? results.map(collection => collection.item) : data;
 
       function onSearch({ currentTarget = {}}) {
         const { value } = currentTarget;
@@ -51,33 +51,28 @@ function IndexPage() {
   return (
     <div className="container">
       <AnimatedCursor/>
-    <h1 className="page_title">Rijksmuseum Index</h1>
-    <div className="content_bottom">
-      <div className="content">
-        <div className="searchbar">
-            <input className="search__input" type="text" value={query} onChange={onSearch} placeholder="Zoek naar de kunstenaaren of objecten..."/>
-        </div>
-        <AnimatePresence>
-        <motion.div  layout
-  animate={{ opacity: 1 }}
-  transition={{
-    opacity: { bounce: "linear" },
-    layout: { duration: 0 }
-    
-  }}
-        className="list">
-        {loading && <Loading/>}
+      {loading && <Loading/>}
         {error && (
           <Error errorMessage={error} />
         )}
+    {loading==false && (<h1 className="page_title">Rijksmuseum Index</h1>)}
+      {loading==false && (<div className="content">
+        <div className="searchbar">
+            <input className="search_input" type="text" value={query} onChange={onSearch} placeholder="Zoek naar de kunstenaars of objecten..."/>
+        </div>
+        <AnimatePresence>
+        <motion.div layout
+  initial={{ opacity: 0}}
+    animate={{ opacity: 1}}
+    transition={{ duration: 1 }}
+        className="list">
           {data &&
             collectionResult.map((object, index) => (
               <Card artObject={object} key={index}/>
             ))}
         </motion.div>
         </AnimatePresence>
-      </div>
-    </div>
+      </div>)}
     </div>
   )
 }

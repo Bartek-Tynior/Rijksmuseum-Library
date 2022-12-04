@@ -3,15 +3,15 @@ import { motion } from "framer-motion"
 
 function Card({artObject}) {
     return (
-        <motion.div layout={{ duration: 0 }} initial={{ opacity: 0, scale: 0 }}
+        <motion.div layout={{ duration: 1 }} initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0 }}>
             <Link to={`/${artObject.objectNumber}`}>
                 <div className="card_image">
                     <img className="image" src={artObject.headerImage.url} />
-                    <div className="down">
-                        <h2>{artObject.title}</h2>                
-                        <p>{artObject.principalOrFirstMaker}</p>
+                    <div className="content_card">
+                        <h2 className="card_title">{artObject.title}</h2>                
+                        <p className="card_author">{artObject.principalOrFirstMaker}</p>
                     </div>
                 </div>        
             </Link>

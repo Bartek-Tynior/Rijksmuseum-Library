@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
+.container_detail {
+    margin: 0;
+    position: relative;
+    height: 100%;
+}
+
 .content_detail {
     width: 100%;
     height: 100%;
@@ -14,6 +20,16 @@
     font-weight: 700;
     color: #CCB22E;
     border-bottom: 1px solid white;
+}
+
+.aqusition_credits, .aqusition_method, .aqusition_date, .description_text{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.dating_presentingDate {
+    font-size: 2rem;
+    font-weight: 700;
     margin: 0;
 }
 
@@ -37,28 +53,23 @@
 .left img {
     object-fit: cover;
     opacity: 0.6;
+    overflow: hidden;
 }
 
 .detail_title {
     position: absolute;
     top: 0;
-    margin: 0 30px;
+    padding: 0 30px;
 }
 
-.description {
-    padding-bottom: 20px;
-}
-
-.dating {
-    padding-bottom: 20px;
-}
-
-.aqusition {
+.description, .dating, .aqusition, .materials  {
     padding-bottom: 20px;
 }
 
 .title_detail {
     font-size: 6rem;
+    margin-bottom: 0;
+    margin-top: 20px;
 }
 
 .author_detail {
@@ -68,7 +79,7 @@
 .details{
     width: 70%;
     height: 100%;
-    padding: 20px 20px 0 0;
+    padding: 20px 20px 0 50px;
 }
 
 .right {
@@ -86,14 +97,14 @@
     border-radius: 10px;
     padding: 10px;
     display: inline-block;
-    margin: 10px;
+    margin: 10px 10px 10px;
 }
 
 .color_box {
     border-radius: 10px;
     padding: 10px;
     display: inline-block;
-    margin: 0 10px 10px;
+    margin: 10px 10px 10px;
 }
 
 .show_image {
@@ -103,14 +114,24 @@
 }
 
 .btn_modal {
-    background-color: #CCB22E;
-    border: none;
-    color: white;
+    background-color: #080808;
+    border-color: #CCB22E;
+    color: #CCB22E;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     border-radius: 10px;
     display: inline-block;
     font-size: 16px;
+    font-weight: 700;
+  }
+
+  .btn_modal:hover {
+    background-color: #CCB22E;
+    border-color: #CCB22E;
+    color: #080808; 
+  }
+
+  .label_detail {
     font-weight: 700;
   }

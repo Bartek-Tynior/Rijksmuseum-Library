@@ -8,6 +8,8 @@ import {
 import './assets/styles/List.css'
 import './assets/styles/Detail.css'
 import './assets/styles/Modal.css'
+import './assets/styles/Card.css'
+import './assets/styles/Error.css'
 
   
   const router = createBrowserRouter([
