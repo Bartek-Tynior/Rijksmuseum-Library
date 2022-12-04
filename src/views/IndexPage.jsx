@@ -27,7 +27,7 @@ function IndexPage() {
     queryKey: ["collection", page],
     queryFn: () => getCollection(page),
     staleTime: 60000,
-    keepPreviousData: true,
+    keepPreviousData: false,
   });
 
   const paginate = (newPage) => {
